@@ -4,7 +4,7 @@ pub struct Day1 {}
 
 impl Day1 {
     pub fn new() -> Day1 {
-        Day1{}
+        Day1 {}
     }
 }
 

@@ -1,4 +1,5 @@
 mod day1;
+mod day2;
 
 pub trait Challenge {
     fn part_1<T>(&self, input: Vec<T>) -> String
@@ -10,6 +11,7 @@ pub trait Challenge {
 pub fn get_challenge(day: u8) -> impl Challenge {
     match day {
         1 => day1::Day1::new(),
+        2 => day2::Day2::new(),
         _ => unimplemented!(),
     }
 }
