@@ -9,11 +9,9 @@ impl Day1 {
 }
 
 impl Challenge for Day1 {
-    fn part_1<T>(&self, input: Vec<T>) -> String
-        where T: Into<String>
-    {
+    fn part_1(&self, input: Vec<String>) -> String {
         input.into_iter()
-            .map(|line| line.into().parse::<i64>().unwrap())
+            .map(|line| line.parse::<i64>().unwrap())
             .collect::<Vec<_>>()
             .windows(2)
             .fold(0, |acc, n| match n {
@@ -23,11 +21,9 @@ impl Challenge for Day1 {
             .to_string()
     }
 
-    fn part_2<T>(&self, input: Vec<T>) -> String
-        where T: Into<String>
-    {
+    fn part_2(&self, input: Vec<String>) -> String {
         input.into_iter()
-            .map(|line| line.into().parse::<i64>().unwrap())
+            .map(|line| line.parse::<i64>().unwrap())
             .collect::<Vec<_>>()
             .windows(3)
             .map(|window| window.into_iter().sum())

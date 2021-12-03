@@ -6,8 +6,6 @@ use std::io::{self, BufRead};
 use std::process;
 use clap::Parser;
 
-use crate::challenges::Challenge;
-
 #[derive(Parser)]
 #[clap(version = "1.0", author = "Carson Myers <carson@myers.se>")]
 struct Opts {
