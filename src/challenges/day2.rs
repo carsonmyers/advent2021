@@ -83,7 +83,7 @@ impl Challenge for Day2 {
                 acc
             });
 
-        format!("{}", final_position.horizontal * final_position.depth)
+        (final_position.horizontal * final_position.depth).to_string()
     }
 
     fn part_2(&self, input: Vec<String>) -> String {
@@ -94,7 +94,7 @@ impl Challenge for Day2 {
                 acc
             });
 
-        format!("{}", final_att.position.horizontal * final_att.position.depth)
+        (final_att.position.horizontal * final_att.position.depth).to_string()
     }
 }
 
