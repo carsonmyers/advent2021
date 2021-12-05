@@ -1,3 +1,5 @@
+use itertools::Itertools;
+
 use crate::challenges::Challenge;
 
 pub struct Day1 {}
@@ -16,12 +18,11 @@ impl Challenge for Day1 {
             .map(|line| line.parse::<i64>().unwrap())
 
             // Iterate over every pair of sequential numbers
-            .collect::<Vec<_>>()
-            .windows(2)
+            .tuple_windows()
 
             // Count every time an entry is larger than the previous
             .fold(0, |acc, n| match n {
-                [x, y] if y > x => acc + 1,
+                (x, y) if y > x => acc + 1,
                 _ => acc,
             })
             .to_string()
@@ -35,19 +36,17 @@ impl Challenge for Day1 {
 
             // Iterate over every group of 3 sequential numbers to create a
             // three measurement sliding window.
-            .collect::<Vec<_>>()
-            .windows(3)
+            .tuple_windows::<(_, _, _)>()
 
             // Collapse each window into its sum
-            .map(|window| window.into_iter().sum())
+            .map(|(a, b, c)| a + b + c)
 
             // Iterate over every pair of sums from the previous steps
-            .collect::<Vec<i64>>()
-            .windows(2)
+            .tuple_windows()
 
             // Count every time a sum has increased
             .fold(0, |acc, n| match n {
-                [x, y] if y > x => acc + 1,
+                (x, y) if y > x => acc + 1,
                 _ => acc,
             })
             .to_string()
