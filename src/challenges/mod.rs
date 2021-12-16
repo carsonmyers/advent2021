@@ -3,6 +3,7 @@ mod day2;
 mod day3;
 mod day4;
 mod day5;
+mod day6;
 
 pub trait Challenge {
     fn part_1(&self, input: Vec<String>) -> String;
@@ -16,6 +17,7 @@ pub fn get_challenge(day: u8) -> Box<dyn Challenge> {
         3 => Box::new(day3::Day3::new()),
         4 => Box::new(day4::Day4::new()),
         5 => Box::new(day5::Day5::new()),
+        6 => Box::new(day6::Day6::new()),
         _ => unimplemented!(),
     }
 }
